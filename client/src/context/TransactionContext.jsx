@@ -138,7 +138,7 @@ export const TransactionProvider = ({ children }) => {
               from: currentAccount,
               to: adressTo,
               gas: "0x5208",
-              value: parsedAmount
+              value: parsedAmount.toString(16)
             }
           ]
         });
