@@ -29,24 +29,24 @@ const Welcome = () => {
     handleChange
   } = useContext(TransactionContext);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-     
+
     const { adressTo, amount, keyword, message } = formData;
-   
+
     if (!adressTo || !amount || !keyword || !message) {
-       // you can handle the error here by displaying an error message
-       console.log('Please fill in all the required fields.');
-       return;
+      // you can handle the error here by displaying an error message
+      console.log("Please fill in all the required fields.");
+      return;
     }
-   
+
     try {
-       await sendTransaction();
+      await sendTransaction();
     } catch (error) {
-       // handle the error here, for example, by displaying an error message
-       console.log('Failed to send transaction.', error);
+      // handle the error here, for example, by displaying an error message
+      console.log("Failed to send transaction.", error);
     }
-   };
+  };
 
   return (
     <div className="flex w-full justify-center items-center">
@@ -84,10 +84,10 @@ const Welcome = () => {
                 <BsInfoCircle size={17} color="#fff" />
               </div>
               <div className="">
-                <p className="text-white font-light  text-sm">
-                  {currentAccount}
+                <p className="text-white font-bold  text-sm">
+                  {currentAccount.slice(0, 3)}...{currentAccount.slice(20, 40)}
                 </p>
-                <p className="text-white font-semibold  text-lg">Ethereum</p>
+                <p className="text-white font-semibold text-lg">Ethereum</p>
               </div>
             </div>
           </div>
