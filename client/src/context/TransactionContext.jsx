@@ -50,9 +50,9 @@ export const TransactionProvider = ({ children }) => {
   const getAllTransactions = async () => {
     try {
       if (ethereum) {
-        const transactionsContract = getAllTransactionsEthereumContract();
+        const transactionsContract = getEthereumContract();
 
-        const availableTransactions = await transactionsContract.getAllTransactions();
+        const availableTransactions = await transactionsContract.getAllTransaction();
 
         const structuredTransactions = availableTransactions.map(
           transaction => ({
@@ -77,6 +77,8 @@ export const TransactionProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  
 
   const checkIfWalletIsConnected = async () => {
     try {
